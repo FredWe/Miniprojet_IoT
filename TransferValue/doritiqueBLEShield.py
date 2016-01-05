@@ -52,6 +52,7 @@ class BLEShield:
     print self.ambT, "\t", self.pres 
     
     self.child.sendline('exit')
+    print "Connection BLE closed"
     return(self)
 
 #*******************************************Fonction principale************************************ 

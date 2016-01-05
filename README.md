@@ -5,4 +5,4 @@ Dependency(not all) : Bluez, Pexpect, Nginx, PHP7.0.1, MySQL
 
 Import PhpMyAdmin as DB config interface & AdminLTE as FE interface
 
-
+Trying to follow PHP Standards Recommendations as code norm --> http://www.php-fig.org/psr/
