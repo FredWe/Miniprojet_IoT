@@ -1,0 +1,5 @@
+INFO:root:Started setting up the socket to php connection
+INFO:root:Connected to Server
+INFO:root:Bind Complete
+INFO:root:Now Listening to socket
+INFO:root:Waiting on Socket to Accept
