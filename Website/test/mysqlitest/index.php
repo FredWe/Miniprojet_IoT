@@ -12,20 +12,11 @@ $objSensorData = getDataFromSocket(SERVICE_ADDRESS, SERVICE_PORT);
 
 echo "</pre>";
 
-echo "<pre>";
-//------part mysqli------//
-
-$sql = "INSERT INTO arduino_mesure (mesure_time, pressure, temperature)
-VALUES ($objSensorData->time, $objSensorData->pres, $objSensorData->ambT)";
-
-executeQuery(SQL_SERVER_NAME, SQL_USERNAME, SQL_PASSWORD, SQL_SENSOR_DBNAME, $sql);
-
-echo "</pre>";
 //------part openweather API------//
-
 echo '<pre>';
 
 $objAPIData = getDataFromAPI(ZIPCODE, APIKEY);
+$objAPIData->main->pressure *= 100;
 
 $sql = "INSERT INTO openweather_metadata (
  base
@@ -99,5 +90,26 @@ VALUES (
 )";
 executeQuery(SQL_SERVER_NAME, SQL_USERNAME, SQL_PASSWORD, SQL_SENSOR_DBNAME, $sql);
 echo '</pre>';
+
+//------part calculate altitude------//
+echo '<pre>';
+
+$altitude = calcAltitude($objSensorData->pres, $objAPIData->main->pressure);
+echo "Altitude : ";
+echo var_dump($altitude);
+
+echo '</pre>';
+
+//------part sensor mysqli------//
+echo "<pre>";
+
+$sql = "INSERT INTO arduino_mesure (mesure_time, pressure, temperature, altitude)
+VALUES ($objSensorData->time, $objSensorData->pres, $objSensorData->ambT, $altitude)";
+
+executeQuery(SQL_SERVER_NAME, SQL_USERNAME, SQL_PASSWORD, SQL_SENSOR_DBNAME, $sql);
+
+echo "</pre>";
+
+
 ?>
 
