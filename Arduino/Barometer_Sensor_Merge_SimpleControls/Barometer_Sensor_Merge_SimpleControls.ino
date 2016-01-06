@@ -2,7 +2,7 @@
  * Barometer_Sensor_Merge_SimpleControls.ino
  *
  * Copyright (c) 2012 seeed technology inc.
- * Website    : www.github.io/example
+ * Website    : www.github.com/FredWe/Miniprojet_IoT
  * Author     : Dong WEI, UPMC
  * Create Time: 2015/12/23
  * Change Log : Nothing Special
