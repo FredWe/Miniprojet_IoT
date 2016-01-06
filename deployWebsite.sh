@@ -4,5 +4,5 @@
 echo "Hello"
 echo "World!"
 
-cp -r ./Website/* /var/www/html/
+cp -vr ./Website/* /var/www/html/
 
