@@ -68,3 +68,13 @@ function getDataFromAPI($zip, $apikey)
     return $objReceived;
 }
 
+function calcAltitude($pressure, $pressureRef)
+{
+     $A = $pressure / $pressureRef;
+     $B = 1 / 5.25588;
+     $C = pow ($A, $B);
+     $C = 1 - $C;
+     $C = $C / 0.0000225577;
+     return $C;
+}
+
